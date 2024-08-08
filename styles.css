@@ -1,111 +1,111 @@
 body {
-  margin: 0;
-  overflow: hidden;
-  cursor: url('images/broken-heart.png'), auto;
-  background: linear-gradient(180deg, pink, purple) repeat-y;
+    margin: 0;
+    overflow: hidden;
+    cursor: url('images/broken-heart.png'), auto;
+    background: linear-gradient(180deg, pink, purple) repeat-y;
 }
 
 .container {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  z-index: 3;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 3; /* Ensure floating images are above circle images */
 }
 
 .floating-image {
-  position: absolute;
-  transition: opacity 1s;
-  animation: floatUp 10s linear infinite, fadeIn 2s forwards, fadeOut 10s forwards, wobble 5s ease-in-out infinite;
-  opacity: 0;
-  z-index: 3;
+    position: absolute;
+    transition: opacity 1s;
+    animation: floatUp 10s linear infinite, fadeIn 2s forwards, fadeOut 10s forwards, wobble 5s ease-in-out infinite;
+    opacity: 0;
+    z-index: 3; /* Ensure floating images are above circle images */
 }
 
 .text-container {
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 4;
-  opacity: 0;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 4; /* Ensure text images are above floating images */
+    opacity: 0;
 }
 
 .text-image {
-  width: 200px;
-  height: auto;
-  cursor: pointer;
+    width: 200px;
+    height: auto;
+    cursor: pointer;
 }
 
 .circle-container {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 400px;
-  height: 400px;
-  pointer-events: none;
-  z-index: 2;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 400px;
+    pointer-events: none;
+    z-index: 2; /* Ensure circle images are below floating images */
 }
 
 .circle-image {
-  position: absolute;
-  transition: opacity 1s;
-  opacity: 0;
+    position: absolute;
+    transition: opacity 1s;
+    opacity: 0;
 }
 
 .background-image {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: opacity 2s;
-  opacity: 0;
-  z-index: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 2s;
+    opacity: 0;
+    z-index: 1; /* Ensure background images are below all other elements */
 }
 
 @keyframes floatUp {
-  0% {
-      transform: translateY(100vh) rotate(0deg);
-  }
-  100% {
-      transform: translateY(-100vh) rotate(360deg);
-  }
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+    }
+    100% {
+        transform: translateY(-100vh) rotate(360deg);
+    }
 }
 
 @keyframes fadeIn {
-  0% {
-      opacity: 0;
-  }
-  100% {
-      opacity: var(--final-opacity);
-  }
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: var(--final-opacity);
+    }
 }
 
 @keyframes fadeOut {
-  0% {
-      opacity: var(--final-opacity);
-  }
-  100% {
-      opacity: 0;
-  }
+    0% {
+        opacity: var(--final-opacity);
+    }
+    100% {
+        opacity: 0;
+    }
 }
 
 @keyframes wobble {
-  0% {
-      transform: translate(0, 0);
-  }
-  25% {
-      transform: translate(10px, -10px);
-  }
-  50% {
-      transform: translate(-10px, 10px);
-  }
-  75% {
-      transform: translate(10px, 10px);
-  }
-  100% {
-      transform: translate(-10px, -10px);
-  }
+    0% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(10px, -10px);
+    }
+    50% {
+        transform: translate(-10px, 10px);
+    }
+    75% {
+        transform: translate(10px, 10px);
+    }
+    100% {
+        transform: translate(-10px, -10px);
+    }
 }
